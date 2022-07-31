@@ -1,0 +1,86 @@
+.table-dark {
+    --bs-table-bg: #fcb631;
+    --bs-table-striped-bg: #ffa600;
+    --bs-table-active-bg: #fcb631;
+    --bs-table-hover-bg: #fcb631;
+}
+
+.text-primary, .editor-toolbar button {
+    color: #f9bb12 !important
+}
+
+.btn-link:hover, a:hover, footer .links a:hover, footer .social a:hover {
+    color: #ffd86d
+}
+
+.list-group-item.active, .btn-primary, .form-check-input:checked {
+    background-color: #fcb631 !important;
+    color: #fff !important
+}
+
+.bg-primary, .dropdown-item.active, .dropdown-item:active {
+    background-color: #fcb631 !important;
+    color: #fff !important;
+    box-shadow: none
+}
+
+.progress-bar {
+    background-color: #ffa600
+}
+
+.btn-play {
+    background-color: #ffa600;
+    border: solid 4px #fdc45a
+}
+
+.bg-dark, .breadcrumb, .btn-play:active, .btn-play:hover {
+    background-color: #fcb631 !important
+}
+
+.background-overlay:before {
+    background-color: rgba(214, 118, 24, .4)
+}
+
+.navbar .active .nav-link {
+    background-color: transparent !important
+}
+
+::-webkit-scrollbar-thumb {
+    background: #fcb631;
+    border-radius: 25px
+}
+
+::selection {
+    background-color: #f9bb12
+}
+
+footer .links a {
+    background-color: #fcb631;
+    border-radius: 25px;
+    color: #fff !important
+}
+
+footer .links a:hover {
+    background-color: #fcb631
+}
+
+.btn-secondary, .btn-success, .color, .form-check-input:focus:not(:checked), .form-check-input:not(:disabled):active {
+    background-color: #fcb631 !important
+}
+
+.btn-secondary:active, .btn-secondary:hover, .btn-success:hover, .color:hover {
+    background-color: #ffa600 !important;
+    box-shadow: none
+}
+
+.nav-link::before {
+    background: #fcb631
+}
+
+.play-icon {
+    color: #ffa600
+}
+
+.card-header, .accordion-button:not(.collapsed) {
+    background-color: #ec8a28
+}
