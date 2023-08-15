@@ -1,4 +1,4 @@
-<footer class="py-5">
+<footer class="text-bg-dark py-5" data-bs-theme="dark">
     <div class="container">
         <div class="row">
             <div class="col-md-4">
@@ -6,7 +6,7 @@
 
                 <p>{!! theme_config('footer_description') !!}</p>
             </div>
-            <div class="col-md-4 links">
+            <div class="col-md-4">
                 <h3>{{ trans('theme::guide.footer.links') }}</h3>
 
                 <p>{!! theme_config('footer_article') !!}</p>
@@ -14,19 +14,19 @@
                 <ul class="list-inline">
                     @foreach(theme_config('footer_links') ?? [] as $link)
                         <li class="list-inline-item">
-                            <a href="{{ $link['value'] }}" class="btn">
+                            <a href="{{ $link['value'] }}">
                                 <i class="bi bi-arrow-right"></i> {{ $link['name'] }}
                             </a>
                         </li>
                     @endforeach
                 </ul>
             </div>
-            <div class="col-md-4 social">
+            <div class="col-md-4">
                 <h3>{{ trans('theme::guide.footer.social') }}</h3>
 
                 <div class="list-inline">
                     @foreach(social_links() as $link)
-                        <a href="{{ $link->value }}" title="{{ $link->title }}" class="list-inline-item" data-bs-toggle="tooltip" target="_blank" rel="noopener noreferrer">
+                        <a href="{{ $link->value }}" title="{{ $link->title }}" class="list-inline-item me-3" data-bs-toggle="tooltip" target="_blank" rel="noopener noreferrer">
                             <i class="{{ $link->icon }} fs-2"></i>
                         </a>
                     @endforeach

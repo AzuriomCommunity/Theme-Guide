@@ -1,9 +1,7 @@
 <?php
 
-$colors = ['red', 'blue', 'green', 'purple', 'yellow'];
-
 return [
-    'color' => ['required', \Illuminate\Validation\Rule::in($colors)],
+    'color' => ['required', new \Azuriom\Rules\Color()],
     'use_play_button' => ['filled'],
     'youtube_link' => 'nullable|string',
     'discord_id' => 'nullable|string',

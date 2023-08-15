@@ -3,10 +3,10 @@
 @section('title', trans('messages.home'))
 
 @section('content')
-    <div class="container text-center">
+    <div class="container">
         @if($message)
             <div class="card mb-5">
-                <div class="card-body">
+                <div class="card-body text-center">
                     {{ $message }}
                 </div>
             </div>
@@ -23,7 +23,7 @@
         @endif
 
         @if(! $servers->isEmpty())
-            <h2>{{ trans('messages.servers') }}</h2>
+            <h2 class="text-center">{{ trans('messages.servers') }}</h2>
 
             <div class="row gy-3 justify-content-center mb-5">
                 @foreach($servers as $server)
@@ -67,29 +67,40 @@
             </div>
         @endif
 
-        <div class="row gy-3">
+        <div class="row gy-4">
             <div class="col-md-8">
                 @foreach($posts as $post)
-                    <div class="post-preview mb-4">
+                    <div class="card mb-4">
                         @if($post->hasImage())
                             <a href="{{ route('posts.show', $post->slug) }}">
-                                <img src="{{ $post->imageUrl() }}" alt="{{ $post->title }}" class="img-fluid rounded">
+                                <img src="{{ $post->imageUrl() }}" alt="{{ $post->title }}" class="card-img-top">
 
-                                <div class="title p-3">
-                                    <h4>{{ $post->title }}</h4>
-                                    <h6>{{ format_date($post->published_at) }}</h6>
+                                <div class="card-body">
+                                    <h3 class="card-title">{{ $post->title }}</h3>
+                                    <h4 class="card-subtitle mb-3">
+                                        {{ format_date($post->published_at) }}
+                                    </h4>
+
+                                    <a class="btn btn-primary" href="{{ route('posts.show', $post->slug) }}">
+                                        {{ trans('messages.posts.read') }} <i class="bi bi-arrow-right"></i>
+                                    </a>
                                 </div>
                             </a>
                         @else
-                            <div class="card-body pb-3">
-                                <h3 class="card-title">{{ $post->title }}<h6>{{ format_date($post->published_at) }}</h6></h3>
+                            <div class="card-body">
+                                <h3 class="card-title">{{ $post->title }}</h3>
+                                <h4 class="card-subtitle">
+                                    {{ format_date($post->published_at) }}
+                                </h4>
+
                                 <hr>
-                                <p class="card-text">{{ Str::limit(strip_tags($post->content), 400, '...') }}</p>
-                                <div class="text-end">
-                                    <a class="btn btn-primary" href="{{ route('posts.show', $post->slug) }}">
-                                        {{ trans('messages.posts.read') }}
-                                    </a>
-                                </div>
+
+                                <p class="card-text">
+                                    {{ Str::limit(strip_tags($post->content), 400) }}
+                                </p>
+                                <a class="btn btn-primary" href="{{ route('posts.show', $post->slug) }}">
+                                    {{ trans('messages.posts.read') }} <i class="bi bi-arrow-right"></i>
+                                </a>
                             </div>
                         @endif
                     </div>

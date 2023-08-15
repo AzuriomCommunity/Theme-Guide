@@ -1,5 +1,5 @@
 # Guide (Theme)
 
-Modern light theme with support for 5 different colors.
+Modern light theme with configurable color for Azuriom.
 
-Originally made by [Rqmain](https://nqtion.fr/).
+Originally made by Rqmain.

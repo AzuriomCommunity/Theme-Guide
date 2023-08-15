@@ -1,13 +1,13 @@
 <div class="home-background background-overlay" style="background: url('{{ setting('background') ? image_url(setting('background')) : 'https://via.placeholder.com/2000x500' }}') no-repeat center / cover">
     <div id="particles-js"></div>
 
-    <nav class="navbar navbar-expand-md navbar-dark py-3">
+    <nav class="navbar main-navbar navbar-expand-md navbar-dark py-3">
         <div class="container">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="{{ trans('messages.nav.toggle') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbar">
+            <div class="collapse navbar-collapse justify-content-center" id="navbar">
                 <ul class="navbar-nav">
                     @foreach($navbar as $element)
                         @if(!$element->isDropdown())
@@ -37,17 +37,19 @@
     </nav>
 
     <div class="container">
-        <div class="row align-items-center justify-content-center">
-            <div class="col-md-3 my-4">
-                <a class="col-md-6 text-center"  href="{{ route('home') }}">
-                    <img src="{{ site_logo() }}" alt="{{ site_name() }}" height="300" class="img-fluid">
-                </a>
+        @if(Route::is('home'))
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-3 my-4">
+                    <a class="col-md-6 text-center" href="{{ route('home') }}">
+                        <img src="{{ site_logo() }}" alt="{{ site_name() }}" height="300" class="position-relative z-5">
+                    </a>
+                </div>
             </div>
-        </div>
+        @endif
 
-        <ul class="navbar-socials list-inline d-flex justify-content-center">
+        <ul class="navbar-socials list-inline d-flex justify-content-center position-relative mb-0 pt-4 pb-5">
             @foreach(social_links() as $link)
-                <li class="list-inline-item">
+                <li class="list-inline-item p-3 rounded">
                     <a href="{{ $link->value }}" target="_blank" rel="noreferrer noopener" title="{{ $link->title }}">
                         <i class="{{ $link->icon }} fs-2"></i>
                     </a>
@@ -57,11 +59,11 @@
     </div>
 </div>
 
-<div class="sub-navbar">
+<div class="sub-navbar bg-light">
     <div class="container py-3">
         <div class="row gy-3 mx-md-5 align-items-center justify-content-center">
             <div class="col-md-4 d-flex align-items-center">
-                <i class="bi bi-trophy play-icon fs-2 me-2"></i>
+                <i class="bi bi-trophy text-primary fs-2 me-2"></i>
                 @if($server && $server->isOnline())
                     {{ trans_choice('theme::guide.header.online', $server->getOnlinePlayers()) }}
                 @else
@@ -72,19 +74,19 @@
             <div class="col-md-4 text-center">
                 @if($server)
                     @if($server->joinUrl())
-                        <a href="{{ $server->joinUrl() }}" class="btn btn-play">
+                        <a href="{{ $server->joinUrl() }}" class="btn btn-primary btn-lg px-4">
                             <i class="bi bi-controller"></i> {{ trans('messages.server.join') }}
                         </a>
                     @else
-                        <button title="{{ trans('messages.actions.copy') }}" data-copied="{{ trans('messages.clipboard.copied') }}" data-copy-error="{{ trans('messages.clipboard.error') }}" class="btn btn-play">
+                        <button title="{{ trans('messages.actions.copy') }}" data-copied="{{ trans('messages.clipboard.copied') }}" data-copy-error="{{ trans('messages.clipboard.error') }}" class="btn btn-primary btn-lg px-4">
                             <i class="bi bi-controller"></i> {{ $server->fullAddress() }}
                         </button>
                     @endif
                 @endif
             </div>
 
-            <div class="col-md-4 navbar-expand navbar-light">
-                <ul class="navbar-nav flex-row-reverse">
+            <div class="col-md-4 navbar navbar-expand navbar-light">
+                <ul class="navbar-nav ms-md-auto">
                     @auth
                         @include('elements.notifications')
 
@@ -93,7 +95,7 @@
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="{{ route('profile.index') }}">
                                     {{ trans('messages.nav.profile') }}
                                 </a>
