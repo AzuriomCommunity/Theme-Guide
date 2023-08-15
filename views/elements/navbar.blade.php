@@ -59,7 +59,7 @@
     </div>
 </div>
 
-<div class="sub-navbar bg-light">
+<div class="sub-navbar bg-body">
     <div class="container py-3">
         <div class="row gy-3 mx-md-5 align-items-center justify-content-center">
             <div class="col-md-4 d-flex align-items-center">
@@ -87,6 +87,8 @@
 
             <div class="col-md-4 navbar navbar-expand navbar-light">
                 <ul class="navbar-nav ms-md-auto">
+                    @include('elements.theme-selector')
+
                     @auth
                         @include('elements.notifications')
 

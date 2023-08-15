@@ -10,6 +10,10 @@ body {
     font-family: Quicksand, sans-serif;
 }
 
+body[data-bs-theme=dark] {
+    background: var(--bs-secondary-bg);
+}
+
 #app {
     flex-shrink: 0;
     padding-bottom: 30px;
@@ -33,7 +37,7 @@ a {
 
 .card-header,
 .accordion-button:not(.collapsed) {
-    color: var(--bs-primary-contrast);
+    color: var(--bs-primary-color-contrast);
     background-color: var(--bs-primary)
 }
 
@@ -80,6 +84,7 @@ a {
     bottom: 0;
     left: 0;
     right: 0;
+    background: rgba(var(--bs-primary-rgb), 0.25);
 }
 
 .navbar-socials .list-inline-item {

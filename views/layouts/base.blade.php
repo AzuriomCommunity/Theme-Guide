@@ -62,7 +62,7 @@
     @include('elements.theme-color', ['color' => $themeColor])
 </head>
 
-<body>
+<body @if(dark_theme()) data-bs-theme="dark" @endif>
 <div id="app">
     @yield('app')
 </div>
